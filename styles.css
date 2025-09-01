@@ -88,12 +88,12 @@ body::before {
     left: -9999px;
 }
 .skip-link:focus {
-    left: 16px;
-    top: 16px;
+    left: var(--s2);
+    top: var(--s2);
     background: var(--surface);
     color: var(--text);
-    padding: 6px 10px;
-    border-radius: 6px;
+    padding: var(--s0) var(--s1);
+    border-radius: var(--s0);
     box-shadow: var(--shadow-2);
     text-decoration: none;
 }
@@ -200,7 +200,7 @@ body::before {
 }
 .hud-about p {
     margin: 0;
-    margin-top: 15px;
+    margin-top: var(--s2);
 }
 .status-item {
     display: flex;
@@ -321,7 +321,7 @@ body::before {
     grid-template-columns: 1fr auto;
     gap: var(--s2);
     align-items: baseline;
-    padding: 6px 0;
+    padding: var(--s1) 0;
 }
 .list__row + .list__row {
     border-top: 1px dashed var(--line);
@@ -344,6 +344,11 @@ body::before {
     box-shadow: var(--ring);
     border-radius: 4px;
 }
+/* Ensure primary list content wraps nicely */
+.list__main {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
 
 /* Tags */
 .tags {
@@ -353,12 +358,40 @@ body::before {
 }
 .tag {
     display: inline-block;
-    padding: 2px 8px;
+    padding: var(--s-1) var(--s0);
     border: 1px solid var(--line);
     background: rgba(86, 240, 197, 0.05);
     color: var(--accent);
     font-size: var(--fs-4);
     letter-spacing: 0.05em;
+}
+
+/* HUD section nav */
+.hud-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s1);
+    margin: 0 0 var(--s4) 0;
+}
+.hud-nav a {
+    display: inline-block;
+    padding: var(--s-1) var(--s0);
+    border: 1px dashed var(--line);
+    background: rgba(36, 50, 70, 0.08);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: var(--fs-4);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.hud-nav a:hover {
+    color: var(--accent);
+    border-color: var(--line-2);
+}
+.hud-nav a:focus-visible {
+    outline: none;
+    box-shadow: var(--ring);
+    border-radius: 4px;
 }
 
 /* Skills grouping */
