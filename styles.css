@@ -298,6 +298,19 @@ body::before {
     color: var(--text);
 }
 
+/* Task list styling inside stats */
+.stat__list {
+    margin: 0;
+    padding-left: 1.2em; /* indent bullets within the value column */
+    list-style-type: square;
+}
+.stat__list li {
+    margin: 2px 0;
+}
+.stat__list li::marker {
+    color: var(--muted);
+}
+
 /* List rows */
 .list {
     display: grid;
