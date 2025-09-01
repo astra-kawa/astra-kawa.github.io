@@ -111,7 +111,9 @@ body::before {
 
 /* Top header block (was sidebar) */
 .hud-header {
-    display: grid;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
     gap: var(--s3);
     padding: var(--s4) var(--s3);
     background: linear-gradient(
@@ -143,10 +145,13 @@ body::before {
 }
 
 .hud-status {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     gap: var(--s1);
-    padding-top: var(--s2);
-    border-top: 1px solid var(--line);
+    padding-left: var(--s3);
+    border-left: 1px solid var(--line);
+    align-self: stretch;
 }
 .status-item {
     display: flex;
@@ -379,6 +384,13 @@ body::before {
     }
     .hud-header {
         padding: var(--s3);
+        flex-direction: column;
+    }
+    .hud-status {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--line);
+        padding-top: var(--s2);
     }
     .contact__row {
         grid-template-columns: 1fr;
