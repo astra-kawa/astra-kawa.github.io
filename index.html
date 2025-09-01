@@ -13,65 +13,59 @@
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
 
-        <div class="hud-page">
-            <aside class="hud-nav" aria-label="Primary">
-                <div class="hud-brand">
-                    <div class="hud-brand__callsign">CALLSIGN</div>
-                    <div class="hud-brand__name">Your Name</div>
-                    <div class="hud-brand__role">Flight Dynamics Analyst</div>
-                </div>
-
-                <nav>
-                    <ul class="nav-list">
-                        <li>
-                            <a class="nav-link is-active" href="#overview"
-                                ><span>01</span> Overview</a
-                            >
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#missions"
-                                ><span>02</span> Missions</a
-                            >
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#publications"
-                                ><span>03</span> Publications</a
-                            >
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#skills"
-                                ><span>04</span> Skills</a
-                            >
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#contact"
-                                ><span>05</span> Contact</a
-                            >
-                        </li>
-                    </ul>
-                </nav>
-
-                <div class="hud-status">
-                    <div class="status-item">
-                        <span class="k">AVAIL</span
-                        ><span class="v ok">OPEN</span>
-                    </div>
-                    <div class="status-item">
-                        <span class="k">LOC</span
-                        ><span class="v">Earth Orbit Ops</span>
-                    </div>
-                    <div class="status-item">
-                        <span class="k">UTC</span
-                        ><span class="v" id="utc-static">00:00</span>
-                    </div>
-                </div>
-
-                <footer class="hud-footer">
-                    <small>© <span id="year">2025</span> Your Name</small>
-                </footer>
-            </aside>
-
             <main id="main" class="hud-main">
+                <header class="hud-header" aria-label="Primary">
+                    <div class="hud-brand">
+                        <div class="hud-brand__callsign">CALLSIGN</div>
+                        <div class="hud-brand__name">Your Name</div>
+                        <div class="hud-brand__role">Flight Dynamics Analyst</div>
+                    </div>
+
+                    <nav>
+                        <ul class="nav-list">
+                            <li>
+                                <a class="nav-link is-active" href="#overview"
+                                    ><span>01</span> Overview</a
+                                >
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#missions"
+                                    ><span>02</span> Missions</a
+                                >
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#publications"
+                                    ><span>03</span> Publications</a
+                                >
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#skills"
+                                    ><span>04</span> Skills</a
+                                >
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#contact"
+                                    ><span>05</span> Contact</a
+                                >
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="hud-status">
+                        <div class="status-item">
+                            <span class="k">AVAIL</span
+                            ><span class="v ok">OPEN</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="k">LOC</span
+                            ><span class="v">Earth Orbit Ops</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="k">UTC</span
+                            ><span class="v" id="utc-static">00:00</span>
+                        </div>
+                    </div>
+                </header>
                 <header class="hero" id="overview">
                     <h1 class="hero__title">
                         Flight Dynamics / Satellite Operations
@@ -237,8 +231,11 @@
                 </section>
 
                 <div class="fx-reticle" aria-hidden="true"></div>
+
+                <footer class="hud-footer">
+                    <small>© <span id="year">2025</span> Your Name</small>
+                </footer>
             </main>
-        </div>
 
         <!-- No JS by design; UTC and year are static placeholders -->
     </body>

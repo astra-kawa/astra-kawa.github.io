@@ -100,20 +100,18 @@ body::before {
 /* =====================
    Layout
    ===================== */
-.hud-page {
+/* Single-column vertical layout */
+.hud-main {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    min-height: 100dvh;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: var(--s4) var(--s3);
 }
 
-.hud-nav {
-    position: sticky;
-    top: 0;
-    align-self: start;
+/* Top header block (was sidebar) */
+.hud-header {
     display: grid;
-    grid-template-rows: auto auto 1fr auto;
     gap: var(--s3);
     padding: var(--s4) var(--s3);
     background: linear-gradient(
@@ -121,11 +119,9 @@ body::before {
         rgba(15, 23, 35, 0.95),
         rgba(15, 23, 35, 0.85)
     );
-    border-right: 1px solid var(--line);
-}
-
-.hud-main {
-    padding: var(--s4) min(6vw, 64px);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-1);
+    margin-bottom: var(--s4);
 }
 
 /* =====================
@@ -402,17 +398,11 @@ body::before {
    Media Queries
    ===================== */
 @media (max-width: 960px) {
-    .hud-page {
-        grid-template-columns: 1fr;
-    }
-    .hud-nav {
-        position: static;
-        grid-template-rows: auto;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-    }
     .hud-main {
         padding: var(--s3) var(--s3);
+    }
+    .hud-header {
+        padding: var(--s3);
     }
     .contact__row {
         grid-template-columns: 1fr;
