@@ -90,39 +90,6 @@ body::before {
     z-index: 0;
 }
 
-/* Subtle scanlines + slow sweep (reduced with prefers-reduced-motion) */
-body::after {
-    content: "";
-    position: fixed;
-    inset: -10% -10% -10% -10%;
-    background:
-        linear-gradient(
-            180deg,
-            transparent 0 40%,
-            rgba(86, 240, 197, 0.06) 50%,
-            transparent 60%
-        ),
-        repeating-linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.02) 0 1px,
-            transparent 1px 3px
-        );
-    mix-blend-mode: screen;
-    opacity: 0.08;
-    pointer-events: none;
-    animation: hud-sweep 22s linear infinite;
-    z-index: 0;
-}
-
-@keyframes hud-sweep {
-    0% {
-        transform: translateY(-8%);
-    }
-    100% {
-        transform: translateY(8%);
-    }
-}
-
 .skip-link {
     position: absolute;
     left: -9999px;
