@@ -335,7 +335,7 @@ body::before {
     justify-content: space-between;
     gap: var(--s2);
     padding: var(--s2) var(--s3);
-    border-bottom: 1px dashed var(--line-soft);
+    border-bottom: 1px dashed var(--line);
     position: relative;
 }
 .panel__title {
