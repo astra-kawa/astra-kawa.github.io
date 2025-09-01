@@ -9,7 +9,7 @@
    ===================== */
 :root {
     /* Colors */
-    --bg: #0b1119; /* base background */
+    --bg: #000000; /* base background */
     --surface: #0f1723; /* panels */
     --line: #1c2a3a; /* borders, separators */
     --line-2: #243246; /* secondary lines */
@@ -368,30 +368,6 @@ body::before {
 }
 .contact .k {
     color: var(--muted);
-}
-
-/* Reticle overlay */
-.fx-reticle {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-}
-.fx-reticle::before,
-.fx-reticle::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    border-left: 1px dashed rgba(86, 240, 197, 0.15);
-}
-.fx-reticle::after {
-    left: 0;
-    right: 0;
-    top: 50%;
-    bottom: auto;
-    border-left: 0;
-    border-top: 1px dashed rgba(86, 240, 197, 0.15);
 }
 
 /* =====================
