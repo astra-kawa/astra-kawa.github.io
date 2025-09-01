@@ -349,16 +349,6 @@ body::before {
     font-size: var(--fs-4);
     letter-spacing: 0.14em;
 }
-.panel__meta::before {
-    content: "[";
-    color: var(--accent);
-    margin-right: 0.4em;
-}
-.panel__meta::after {
-    content: "]";
-    color: var(--accent);
-    margin-left: 0.4em;
-}
 .panel__body {
     padding: var(--s3);
     position: relative;
@@ -561,6 +551,15 @@ body::before {
     height: 8px;
     border: 1px solid var(--accent);
     box-shadow: 0 0 0 2px var(--accent-weak);
+}
+.skill-item {
+    display: inline-block;
+    padding: var(--s-1) var(--s0);
+    border: 1px solid var(--line);
+    background: rgba(86, 240, 197, 0.05);
+    color: var(--accent);
+    font-size: var(--fs-4);
+    letter-spacing: 0.05em;
 }
 
 /* =====================
