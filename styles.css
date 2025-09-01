@@ -1,0 +1,428 @@
+/*
+  HUD Minimal Design System (vanilla CSS)
+  - Modern, utilitarian, aircraft/spacecraft UI inspired
+  - Single file, no external fonts or JS
+*/
+
+/* =====================
+   Design Tokens
+   ===================== */
+:root {
+    /* Colors */
+    --bg: #0b1119; /* base background */
+    --surface: #0f1723; /* panels */
+    --line: #1c2a3a; /* borders, separators */
+    --line-2: #243246; /* secondary lines */
+    --text: #cfe6f3; /* primary text */
+    --muted: #7c8da3; /* secondary text */
+    --accent: #56f0c5; /* HUD green */
+    --accent-weak: rgba(86, 240, 197, 0.2);
+    --ok: #7bffb7;
+    --warn: #ffe27a;
+    --err: #ff6b6b;
+
+    /* Typography */
+    --sans:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+        "Noto Sans", sans-serif;
+    --mono:
+        ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+        monospace;
+    --fs-1: clamp(20px, 2vw, 28px);
+    --fs-2: 18px;
+    --fs-3: 16px;
+    --fs-4: 14px;
+    --lh: 1.4;
+
+    /* Spacing (8px base) */
+    --s-1: 4px;
+    --s0: 8px;
+    --s1: 12px;
+    --s2: 16px;
+    --s3: 24px;
+    --s4: 32px;
+    --s5: 48px;
+
+    /* Effects */
+    --ring: 0 0 0 1px var(--accent-weak), 0 0 0 2px transparent;
+    --shadow-1: 0 0 0 1px var(--line);
+    --shadow-2: 0 0 0 1px var(--line), 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* =====================
+   Base
+   ===================== */
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: var(--fs-3);
+    line-height: var(--lh);
+    text-rendering: optimizeLegibility;
+}
+
+/* Subtle grid background */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+}
+.skip-link:focus {
+    left: 16px;
+    top: 16px;
+    background: var(--surface);
+    color: var(--text);
+    padding: 6px 10px;
+    box-shadow: var(--shadow-2);
+    text-decoration: none;
+}
+
+/* =====================
+   Layout
+   ===================== */
+.hud-page {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100dvh;
+}
+
+.hud-nav {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: var(--s3);
+    padding: var(--s4) var(--s3);
+    background: linear-gradient(
+        180deg,
+        rgba(15, 23, 35, 0.95),
+        rgba(15, 23, 35, 0.85)
+    );
+    border-right: 1px solid var(--line);
+}
+
+.hud-main {
+    padding: var(--s4) min(6vw, 64px);
+}
+
+/* =====================
+   Brand / Status
+   ===================== */
+.hud-brand__callsign {
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    font-size: var(--fs-4);
+}
+.hud-brand__name {
+    font-size: var(--fs-1);
+    margin-top: var(--s1);
+}
+.hud-brand__role {
+    margin-top: var(--s1);
+    color: var(--muted);
+    font-size: var(--fs-4);
+}
+
+.hud-status {
+    display: grid;
+    gap: var(--s1);
+    padding-top: var(--s2);
+    border-top: 1px solid var(--line);
+}
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s2);
+}
+.status-item .k {
+    color: var(--muted);
+}
+.status-item .v.ok {
+    color: var(--ok);
+}
+
+.hud-footer {
+    margin-top: var(--s3);
+    padding-top: var(--s2);
+    border-top: 1px dashed var(--line);
+    color: var(--muted);
+}
+
+/* =====================
+   Navigation
+   ===================== */
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--s1);
+}
+.nav-link {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    align-items: center;
+    gap: var(--s2);
+    color: var(--text);
+    text-decoration: none;
+    padding: 8px 10px;
+    border: 1px solid transparent;
+    position: relative;
+}
+.nav-link span {
+    color: var(--muted);
+    font-size: var(--fs-4);
+}
+.nav-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--line);
+    opacity: 0.6;
+    pointer-events: none;
+}
+.nav-link:hover,
+.nav-link.is-active {
+    color: var(--accent);
+}
+.nav-link:focus-visible {
+    outline: none;
+    box-shadow: var(--ring);
+    border-color: var(--accent-weak);
+}
+
+/* =====================
+   Hero
+   ===================== */
+.hero {
+    margin-bottom: var(--s4);
+}
+.hero__title {
+    margin: 0 0 var(--s1) 0;
+    font-family: var(--mono);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.hero__tag {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* =====================
+   Panels
+   ===================== */
+.panel {
+    background: linear-gradient(
+        180deg,
+        rgba(36, 50, 70, 0.08),
+        rgba(36, 50, 70, 0.02)
+    );
+    border: 1px solid var(--line);
+    box-shadow: inset 0 0 0 1px var(--line-2);
+    padding: 0;
+    margin-bottom: var(--s4);
+}
+.panel__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s2);
+    padding: var(--s2) var(--s3);
+    background: rgba(15, 23, 35, 0.6);
+    border-bottom: 1px solid var(--line);
+}
+.panel__title {
+    margin: 0;
+    font-size: var(--fs-2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.panel__meta {
+    color: var(--muted);
+    font-size: var(--fs-4);
+    letter-spacing: 0.14em;
+}
+.panel__body {
+    padding: var(--s3);
+}
+
+/* Items & stats */
+.item {
+    display: grid;
+    gap: var(--s2);
+    padding: var(--s2) 0;
+}
+.item + .item {
+    border-top: 1px dashed var(--line);
+}
+.item__head {
+    display: flex;
+    align-items: center;
+    gap: var(--s2);
+    justify-content: space-between;
+}
+.item__title {
+    margin: 0;
+    font-size: var(--fs-3);
+}
+.item__row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--s2);
+}
+
+.stat {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: var(--s1);
+}
+.stat__k {
+    color: var(--muted);
+}
+.stat__v {
+    color: var(--text);
+}
+
+/* List rows */
+.list {
+    display: grid;
+    gap: var(--s2);
+}
+.list__row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--s2);
+    align-items: baseline;
+    padding: 6px 0;
+}
+.list__row + .list__row {
+    border-top: 1px dashed var(--line);
+}
+.list__meta {
+    color: var(--muted);
+    font-size: var(--fs-4);
+}
+
+/* Tags */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s1);
+}
+.tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border: 1px solid var(--line);
+    background: rgba(86, 240, 197, 0.05);
+    color: var(--accent);
+    font-size: var(--fs-4);
+    letter-spacing: 0.05em;
+}
+.tag--muted {
+    color: var(--muted);
+    background: transparent;
+}
+
+/* Links */
+.link {
+    color: var(--accent);
+    text-decoration: none;
+}
+.link:hover {
+    text-decoration: underline;
+}
+.link:focus-visible {
+    outline: none;
+    box-shadow: var(--ring);
+}
+
+/* Contact */
+.contact {
+    display: grid;
+    gap: var(--s2);
+}
+.contact__row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: var(--s2);
+}
+.contact .k {
+    color: var(--muted);
+}
+
+/* Reticle overlay */
+.fx-reticle {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+.fx-reticle::before,
+.fx-reticle::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    border-left: 1px dashed rgba(86, 240, 197, 0.15);
+}
+.fx-reticle::after {
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: auto;
+    border-left: 0;
+    border-top: 1px dashed rgba(86, 240, 197, 0.15);
+}
+
+/* =====================
+   Media Queries
+   ===================== */
+@media (max-width: 960px) {
+    .hud-page {
+        grid-template-columns: 1fr;
+    }
+    .hud-nav {
+        position: static;
+        grid-template-rows: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+    .hud-main {
+        padding: var(--s3) var(--s3);
+    }
+    .contact__row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
