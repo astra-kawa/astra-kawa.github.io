@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>astra_kawa</title>
+        <title>astra_kawa — Flight Dynamics & Satellite Operations</title>
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
@@ -15,17 +15,17 @@
                     <div class="hud-brand__callsign">CALLSIGN</div>
                     <div class="hud-brand__name">astra_kawa</div>
                     <div class="hud-brand__role">
-                        FLIGHT DYNAMICS / SATELLITE OPERATIONS
+                        FLIGHT DYNAMICS & SATELLITE OPERATIONS
                     </div>
                 </div>
                 <div class="hud-status">
                     <div class="status-item">
-                        <span class="k">AVAIL</span
+                        <span class="k">STATUS</span
                         ><span class="v ok">OPEN</span>
                     </div>
                     <div class="status-item">
                         <span class="k">LOC</span
-                        ><span class="v">CANADA - Earth Orbit Ops</span>
+                        ><span class="v">Canada — Earth Orbit Operations</span>
                     </div>
                 </div>
             </header>
@@ -36,7 +36,7 @@
             >
                 <div class="panel__header">
                     <h2 class="panel__title" id="panel-missions">Missions</h2>
-                    <div class="panel__meta">CURR / HIST</div>
+                    <div class="panel__meta">ACTIVE & HISTORICAL</div>
                 </div>
                 <div class="panel__body">
                     <article class="item">
@@ -56,7 +56,8 @@
                             <div class="stat">
                                 <span class="stat__k">ORBIT</span
                                 ><span class="stat__v"
-                                    >LEO, Repeat, Sun-Synchronous</span
+                                    >LEO, sun-synchronous, repeating ground
+                                    track</span
                                 >
                             </div>
                         </div>
@@ -64,9 +65,10 @@
                             <div class="stat">
                                 <span class="stat__k">TASK</span
                                 ><span class="stat__v"
-                                    >FD ground system maintenance, automated
-                                    orbit control, conjunction assessment,
-                                    collision avoidance manoeuvre planning</span
+                                    >Flight dynamics ground segment maintenance;
+                                    automated orbit control; conjunction
+                                    assessment; collision avoidance manoeuvre
+                                    planning</span
                                 >
                             </div>
                         </div>
@@ -80,7 +82,8 @@
                             <div class="stat">
                                 <span class="stat__k">ORBIT</span
                                 ><span class="stat__v"
-                                    >LEO, Repeat, Sun-Synchronous</span
+                                    >LEO, sun-synchronous, repeating ground
+                                    track</span
                                 >
                             </div>
                         </div>
@@ -88,9 +91,9 @@
                             <div class="stat">
                                 <span class="stat__k">TASK</span
                                 ><span class="stat__v"
-                                    >FD ground system development and
-                                    maintenance, manual orbit control,
-                                    conjunction assessment, collision avoidance
+                                    >Flight dynamics ground segment development
+                                    and maintenance; manual orbit control;
+                                    conjunction assessment; collision avoidance
                                     manoeuvre planning</span
                                 >
                             </div>
@@ -107,11 +110,12 @@
                                 ><span class="stat__v">SCISAT, NEOSSAT</span>
                             </div>
                         </div>
+                        <div class="item__row">
                             <div class="stat">
                                 <span class="stat__k">TASK</span
                                 ><span class="stat__v"
-                                    >FD ground system development and
-                                    maintenance</span
+                                    >Flight dynamics ground segment development
+                                    and maintenance</span
                                 >
                             </div>
                         </div>
@@ -134,7 +138,7 @@
                     <div class="list__row">
                         <div class="list__main">
                             Precise Orbit Control for the RADARSAT Constellation
-                            Mission
+                            Mission (RCM)
                         </div>
                         <div class="list__meta">2025 • Conference</div>
                     </div>
@@ -153,7 +157,7 @@
                     <span class="tag">Manoeuvre Planning</span>
                     <span class="tag">Conjunction Assessment</span>
                     <span class="tag">Mission Analysis</span>
-                    <span class="tag">FD GS Design</span>
+                    <span class="tag">FD Ground Segment</span>
                     <span class="tag">Python</span>
                     <span class="tag">Java</span>
                     <span class="tag">Julia</span>
@@ -163,11 +167,29 @@
                     <span class="tag">ODTK</span>
                 </div>
             </section>
+
+            <section class="panel" aria-labelledby="panel-contact" id="contact">
+                <div class="panel__header">
+                    <h2 class="panel__title" id="panel-contact">Contact</h2>
+                    <div class="panel__meta">LINKS</div>
+                </div>
+                <div class="panel__body list">
+                    <div class="list__row">
+                        <div class="list__main">
+                            <a
+                                href="https://github.com/astra-kawa"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >github.com/astra-kawa</a
+                            >
+                        </div>
+                        <div class="list__meta">GitHub</div>
+                    </div>
+                </div>
+            </section>
             <footer class="hud-footer">
                 <small>© <span id="year">2025</span> astra_kawa</small>
             </footer>
         </main>
-
-        <!-- No JS by design; UTC and year are static placeholders -->
     </body>
 </html>
