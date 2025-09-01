@@ -361,6 +361,35 @@ body::before {
     letter-spacing: 0.05em;
 }
 
+/* Skills grouping */
+.skills-groups {
+    display: grid;
+    gap: var(--s3);
+}
+.skills-group {
+    padding: var(--s2) 0;
+}
+.skills-group + .skills-group {
+    border-top: 1px dashed var(--line);
+}
+.skills-group__title {
+    margin: 0 0 var(--s2) 0;
+    color: var(--muted);
+    font-size: var(--fs-4);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s1);
+}
+.skills-group__title::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-weak);
+}
+
 /* =====================
    Media Queries
    ===================== */
